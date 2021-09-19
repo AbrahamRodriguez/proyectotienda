@@ -10,4 +10,13 @@ export class CatalogoprodService {
   public retornar_catalogo(){
    return this.http.get("http://fakestoreapi.com/products");
   }
+  
+  public retornar_categorias(){
+    return this.http.get("http://fakestoreapi.com/products/categories");
+  }
+  
+  public delimitar_categorias(caracter : string){
+    var urlProducto : string = "http://fakestoreapi.com/products/category/" + caracter;
+    return this.http.get(urlProducto);
+  }
 }

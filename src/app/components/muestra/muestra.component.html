@@ -1,28 +1,37 @@
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+<div class="row"> 
+  <div class="offset-1"></div> 
+  <div class="col-3">
+    <mat-form-field >
+      <ng-content></ng-content>
+      <input (keyup)="applyFilterTexto()" [(ngModel)]="firstName" name="firstName" matInput placeholder="Buscar por Nombre">
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <select name="cat" id="cat" class="form-control" [(ngModel)]="opcionSeleccionado" (change)="capturar()" >
+      <option value="">Sin filtro</option>
+      <option *ngFor="let category of categories" [value]="category" >{{category}}</option>
+    </select>
+  </div>  
   
-    <!-- Position Column -->
+</div>
+<div class="row">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
-  
-    <!-- Name Column -->
+
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Nombre </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef> Precio </th>
       <td mat-cell *matCellDef="let element"> {{element.price}} </td>
     </ng-container>
-  
-    <!-- Symbol Column -->
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef> Descripción </th>
       <td mat-cell *matCellDef="let element"> {{element.description}} </td>
@@ -41,5 +50,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</div>
+
   
   
