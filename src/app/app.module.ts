@@ -9,7 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {MatInputModule} from '@angular/material/input';
 //import { MatSort } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table' 
+import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule  } from '@angular/material/grid-list';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
@@ -28,6 +29,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     //Component , ViewChild,
     HttpClientModule,
     BrowserModule,
+    MatGridListModule,
+    //MatGridTileModule,
     AppRoutingModule,
     MatFormFieldModule,
     BrowserAnimationsModule,

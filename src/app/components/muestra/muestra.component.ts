@@ -41,11 +41,12 @@ export class MuestraComponent implements OnInit  {
 
   }
   
-    public capturar(){
-      let resp = this.service.delimitar_categorias(this.opcionSeleccionado);
-      resp.subscribe( report => this.dataSource.data = report as ProductReports[]);
+  public capturar(){
+    let resp = this.service.delimitar_categorias(this.opcionSeleccionado);
+    resp.subscribe( report => this.dataSource.data = report as ProductReports[]);
+    if(this.firstName != ""){this.applyFilterTexto();}
 
-    }
+  }
  
   public getAllCategories(){
     let resp = this.service.retornar_categorias();
